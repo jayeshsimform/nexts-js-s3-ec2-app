@@ -1,0 +1,13 @@
+org: jayeshsojitra
+app: aws-node-project
+service: aws-node-project
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  hello:
+    handler: handler.hello
