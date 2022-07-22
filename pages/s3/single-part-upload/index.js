@@ -7,19 +7,7 @@ import InputFile from '../../../component/InputFile';
 import ImagesList from '../../../component/ImagesList';
 import Message from '../../../component/Message';
 
-
-export async function getServerSideProps() {
-    const url = `${process.env.BASE_URL}/api/single-part/getS3Files`;
-    const res = await fetch(url);
-    const data = await res.json();
-    return {
-        props: {
-            imagesUrl: data?.imagesUrl,
-        },
-    }
-}
-
-const CloudUpload = ({ imagesUrl }) => {
+const CloudUpload = () => {
     //local state
     const [listFiles, setListFiles] = useState([]);
     const [loader, setLoader] = useState(false);
@@ -86,6 +74,7 @@ const CloudUpload = ({ imagesUrl }) => {
         }
 
     }
+
     //Close Snackbar
     const closeSnackbar = () => {
         setMessage({
@@ -93,11 +82,16 @@ const CloudUpload = ({ imagesUrl }) => {
             status: false,
         })
     }
+    //Get Images from s3
+    const getIamges = async () => {
+        const url = `/api/single-part/getS3Files`;
+        const res = await axios.get(url);
+        console.log("res", res?.data?.imagesUrl);
+        setListFiles(res?.data?.imagesUrl)
+    }
     useEffect(() => {
-        if (imagesUrl.length) {
-            setListFiles(imagesUrl)
-        }
-    }, [imagesUrl]);
+        getIamges()
+    }, []);
 
     return (
         <>
