@@ -9,12 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.131.0",
-    "@aws-sdk/lib-storage": "^3.131.0",
     "aws-sdk": "^2.1174.0",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
-    "moment": "^2.29.4",
     "next": "12.2.0",
     "nprogress": "^0.2.0",
     "react": "18.2.0",
