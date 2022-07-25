@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import nProgress from 'nprogress';
 import axios from 'axios';
@@ -9,9 +9,30 @@ const ImagesList = ({
     setMessage,
     selectedFile,
     setLoader,
-    setListFiles
+    setListFiles,
 }) => {
     const [isModal, setIsModal] = useState(false);
+
+    //Get Images from s3
+    const getIamges = async () => {
+        try {
+            const url = `/api/single-part/getS3Files`;
+            const res = await axios.get(url);
+            console.log("res", res?.data?.imagesUrl);
+            setListFiles(res?.data?.imagesUrl)
+        }
+        catch (err) {
+            setMessage({
+                status: true,
+                type: 'error',
+                content: err?.message
+            })
+        }
+    }
+
+    useEffect(() => {
+        getIamges()
+    }, []);
     //Delete File
     const onDeleteS3File = async () => {
         const key = selectedFile?.name;

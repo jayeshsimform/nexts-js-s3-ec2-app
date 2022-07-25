@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Head from "next/head";
 import axios from 'axios';
 import nProgress from 'nprogress';
@@ -64,7 +64,7 @@ const CloudUpload = () => {
                 setMessage({
                     status: true,
                     type: 'error',
-                    content: err.message
+                    content: err?.message
                 })
             }
             finally {
@@ -82,16 +82,7 @@ const CloudUpload = () => {
             status: false,
         })
     }
-    //Get Images from s3
-    const getIamges = async () => {
-        const url = `/api/single-part/getS3Files`;
-        const res = await axios.get(url);
-        console.log("res", res?.data?.imagesUrl);
-        setListFiles(res?.data?.imagesUrl)
-    }
-    useEffect(() => {
-        getIamges()
-    }, []);
+
 
     return (
         <>

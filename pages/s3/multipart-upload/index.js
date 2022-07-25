@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Head from "next/head";
 import axios from 'axios';
 import nProgress from 'nprogress';
@@ -6,18 +6,9 @@ import InputFile from '../../../component/InputFile';
 import ImagesList from '../../../component/ImagesList';
 import Message from '../../../component/Message';
 
-export async function getServerSideProps() {
-    const url = `${process.env.BASE_URL}/api/single-part/getS3Files`;
-    const res = await fetch(url);
-    const data = await res.json();
-    return {
-        props: {
-            imagesUrl: data?.imagesUrl,
-        },
-    }
-}
 
-const MultiPartUpload = ({ imagesUrl }) => {
+
+const MultiPartUpload = () => {
 
     //local state
     const [listFiles, setListFiles] = useState([]);
@@ -149,11 +140,6 @@ const MultiPartUpload = ({ imagesUrl }) => {
         })
     }
 
-    useEffect(() => {
-        if (imagesUrl.length) {
-            setListFiles(imagesUrl)
-        }
-    }, [imagesUrl]);
     return (
         <>
             <div className="container">
