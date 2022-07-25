@@ -165,6 +165,7 @@ const MultiPartUpload = () => {
                 setListFiles={setListFiles}
             />
 
+            {/* Display Success & Error messages */}
             <Message
                 message={message}
                 closeSnackbar={closeSnackbar} />

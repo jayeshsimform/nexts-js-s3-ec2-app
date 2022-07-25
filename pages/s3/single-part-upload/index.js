@@ -111,7 +111,7 @@ const CloudUpload = () => {
 
             />
 
-            {/* Display message */}
+            {/* Display Success & Error messages */}
             <Message message={message} closeSnackbar={closeSnackbar} />
 
         </>
