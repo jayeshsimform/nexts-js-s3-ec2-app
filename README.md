@@ -1,10 +1,8 @@
 ## Demo
 
-https://nexts-js-s3-ec2-7eekfojh9-jayeshsimform.vercel.app/
+[https://nexts-js-s3-ec2-7eekfojh9-jayeshsimform.vercel.app/](https://nexts-js-s3-ec2-7eekfojh9-jayeshsimform.vercel.app/)
 
 ## Getting Started
-
-[https://nexts-js-s3-ec2-7eekfojh9-jayeshsimform.vercel.app/](https://nexts-js-s3-ec2-7eekfojh9-jayeshsimform.vercel.app/)
 
 First, run the development server:
 
